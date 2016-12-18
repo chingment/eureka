@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @RenderSection("styles", required: false)
+}
+@section scripts{
+    @ManagerStaticScriptsResource.Render("jquery.formValidator.js")
+    @ManagerStaticScriptsResource.Render("jquery.formValidatorRegex.js")
+    @ManagerStaticScriptsResource.Render("Jquery.tree/jquery.ztree.core-3.2.js")
+    @ManagerStaticScriptsResource.Render("Jquery.tree/jquery.ztree.excheck-3.2.js")
+    @RenderSection("scripts", required: false)
+}
+<div class="gbr gbr-dialog">
+    @RenderBody()
+</div>
+@section scriptsbyend{
+    @RenderSection("scriptsbyend", required: false)
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $("#btn_Cancle").on("click", function () {
+                $.lumos.cloaseDialog();
+            });
+        });
+    </script>
+}
+
+

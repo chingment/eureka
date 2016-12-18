@@ -1,0 +1,12 @@
+﻿@model  Dictionary<string, string>
+
+
+@if(Model!=null)
+{
+    foreach(var m in Model)
+    {
+        <h2>@m.Key</h2>
+        <h3>@m.Value</h3>
+        <hr />
+    }
+}

@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7151B554-8154-4EAC-A4F8-1A5924D8AA60}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebBack</RootNamespace>
+    <AssemblyName>WebBack</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ICSharpCode\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Manager\Controllers\Sys\MachineKeyController.cs" />
+    <Compile Include="Areas\Manager\Controllers\Sys\StaffUserController.cs" />
+    <Compile Include="Areas\Manager\ManagerAuthorizeAttribute.cs" />
+    <Compile Include="Areas\Manager\ManagerBreadcrumb.cs" />
+    <Compile Include="Areas\Manager\ManagerCheckVerifyCodeAttribute.cs" />
+    <Compile Include="Areas\Manager\ManagerConfig.cs" />
+    <Compile Include="Areas\Manager\ManagerExceptionAttribute.cs" />
+    <Compile Include="Areas\Manager\Controllers\CommonController.cs" />
+    <Compile Include="Areas\Manager\ManagerHmlExtension.cs" />
+    <Compile Include="Areas\Manager\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manager\ManagerOperateTipUtils.cs" />
+    <Compile Include="Areas\Manager\ManagerStaticResource.cs" />
+    <Compile Include="Areas\Manager\ManagerUtils.cs" />
+    <Compile Include="Areas\Manager\Models\BaseViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Home\ChangePasswordModel.cs" />
+    <Compile Include="Areas\Manager\Models\Home\LoginModel.cs" />
+    <Compile Include="Areas\Manager\Models\Mod\Banner\BannerModel.cs" />
+    <Compile Include="Areas\Manager\Models\Mod\Banner\BannerSearchCondition.cs" />
+    <Compile Include="Areas\Manager\Models\Mod\CommentTemplate\CommentTemplateModel.cs" />
+    <Compile Include="Areas\Manager\Models\Mod\CommentTemplate\CommentTemplateSearchCondition.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\LogView\ListModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Menu\AddViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Menu\DetailsViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Menu\EditViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Menu\ListViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Role\AddViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Role\DetailsViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Role\EditViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\Role\RoleUserSearchCondition.cs" />
+    <Compile Include="Areas\Manager\Models\SearchCondition.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\StaffUser\AddViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\StaffUser\EditViewModel.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\StaffUser\StaffUserSearchCondition.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\User\UserSearchCondition.cs" />
+    <Compile Include="Areas\Manager\Models\Sys\User\DetailsViewModel.cs" />
+    <Compile Include="Areas\Manager\ManagerNoResubmitAttribute.cs" />
+    <Compile Include="Areas\Manager\ManagerStatisticsTrackerAttribute.cs" />
+    <Compile Include="Areas\Manager\Controllers\Sys\LogViewController.cs" />
+    <Compile Include="Areas\Manager\Controllers\Sys\MenuController.cs" />
+    <Compile Include="Areas\Manager\Controllers\Sys\PermissionController.cs" />
+    <Compile Include="Areas\Manager\Controllers\Sys\RoleController.cs" />
+    <Compile Include="Areas\Manager\Controllers\Sys\UserController.cs" />
+    <Compile Include="Areas\Manager\Controllers\UploadImageController.cs" />
+    <Compile Include="Areas\Manager\ManagerApiController.cs" />
+    <Compile Include="Areas\Manager\ManagerController.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manager\Content\base\images\bg_login.jpg" />
+    <Content Include="Areas\Manager\Content\base\images\bg_breadcrumb.png" />
+    <Content Include="Areas\Manager\Content\base\images\btn_navmenu_level1_common.png" />
+    <Content Include="Areas\Manager\Content\base\images\btn_dropdownmenu_more_arrow-down.png" />
+    <Content Include="Areas\Manager\Content\base\images\btn_dropdownmenu_more_arrow_up.png" />
+    <Content Include="Areas\Manager\Content\base\images\messagesbox_icon_error.png" />
+    <Content Include="Areas\Manager\Content\base\images\messagesbox_icon_success.png" />
+    <Content Include="Areas\Manager\Content\base\images\messagesbox_icon_warn.png" />
+    <Content Include="Areas\Manager\Content\base\images\onCorrect.gif" />
+    <Content Include="Areas\Manager\Content\base\images\onError.gif" />
+    <Content Include="Areas\Manager\Content\base\images\onFocus.gif" />
+    <Content Include="Areas\Manager\Content\base\images\onLoad.gif" />
+    <Content Include="Areas\Manager\Content\base\images\onShow.gif" />
+    <Content Include="Areas\Manager\Content\base\images\onSuccess.gif" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_menu.ico" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_menus.ico" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_opfun.ico" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_opfuns.ico" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_org.png" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_orgs.png" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_role.ico" />
+    <Content Include="Areas\Manager\Content\base\images\tree_icon_roles.ico" />
+    <Content Include="Areas\Manager\Content\base\images\zTreeStandard.gif" />
+    <Content Include="Areas\Manager\Content\base\images\zTreeStandard.png" />
+    <Content Include="Areas\Manager\Content\base\images\zTreeStandard2.gif" />
+    <Content Include="Areas\Manager\Content\base\Site.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\artDialog.js" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\artDialog.source.js" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\iframeTools.js" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\iframeTools.source.js" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\jquery.artDialog.js" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\jquery.artDialog.source.js" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\aero_s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\aero_s2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_close.hover.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_close.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_e.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_n.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_ne.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_nw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_se.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_sw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_title_icon.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\aero\ie6\aui_w.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\bg - 副本.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\bg.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\bg2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\bg_css3 - 副本.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\bg_css3.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\bg_css3_2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\close.hover.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\close.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\e.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\n.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\ne.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\nw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\se.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\sw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\base\ie6\w.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\bg.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\bg2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\bg_css3.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\bg_css3_2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\close.hover.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\close.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\e.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\n.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\ne.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\nw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\se.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\sw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\black\ie6\w.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\chrome.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\chrome\border.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\chrome\chrome_s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\default.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\bg.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\bg2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\bg_css3.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\bg_css3_2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\color_bg.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\close.hover.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\close.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\e.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\n.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\ne.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\nw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\se.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\sw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\green\ie6\w.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\icons\error.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\icons\face-sad.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\icons\face-smile.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\icons\loading.gif" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\icons\question.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\icons\succeed.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\icons\warning.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\idialog_s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\idialog_s2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_close.hover.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_close.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_e.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_n.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_ne.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_nw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_se.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_sw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\idialog\ie6\aui_w.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_close.hover.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_close.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_e.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_n.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_ne.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_nw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_s.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_se.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_sw.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\ie6\aui_w.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\s1.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\opera\s2.png" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\simple.css" />
+    <Content Include="Areas\Manager\Scripts\ArtDialog\skins\twitter.css" />
+    <Content Include="Areas\Manager\Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Areas\Manager\Scripts\jquery.cookie.js" />
+    <Content Include="Areas\Manager\Scripts\jquery.form.js" />
+    <Content Include="Areas\Manager\Scripts\jquery.formValidator.js" />
+    <Content Include="Areas\Manager\Scripts\jquery.formValidatorRegex.js" />
+    <Content Include="Areas\Manager\Scripts\jquery.lumos.back.1.0.0.js" />
+    <Content Include="Areas\Manager\Scripts\jquery.resizeEnd.js" />
+    <Content Include="Areas\Manager\Scripts\Jquery.tree\jquery.ztree.core-3.2.js" />
+    <Content Include="Areas\Manager\Scripts\Jquery.tree\jquery.ztree.excheck-3.2.js" />
+    <Content Include="Areas\Manager\Scripts\Jquery.tree\zTreeStyle.css" />
+    <Content Include="Areas\Manager\Scripts\Jquery.tree\zTreeStyle1.css" />
+    <Content Include="Areas\Manager\Scripts\json2.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_LayoutHomeMain.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_LayoutHomeDialog.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_LayoutHomeMainTree.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\Menu\List.cshtml" />
+    <Content Include="Areas\Manager\Scripts\Jquery.tree\vssver2.scc" />
+    <Content Include="Areas\Manager\Views\Shared\_LayoutHomeMainEdit.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\ChangePassword.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\MessageBox.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_LayoutHomeMainList.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\User\List.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\LogView\List.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\Role\List.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\Menu\Add.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\Role\Add.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\Menu\Sort.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\Role\AddUserToRole.cshtml" />
+    <Content Include="Static\404.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Manager\Views\Sys\StaffUser\Add.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\StaffUser\List.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\StaffUser\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Sys\User\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Manager\Controllers\Biz\" />
+    <Folder Include="Areas\Manager\Models\Biz\" />
+    <Folder Include="Areas\Manager\Scripts\DatePicker\" />
+    <Folder Include="Areas\Manager\Views\Biz\" />
+    <Folder Include="Content\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\Lumos.BLL.csproj">
+      <Project>{640a898e-2b63-4a12-ac93-2c61d718cc6c}</Project>
+      <Name>Lumos.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Lumos.Common.csproj">
+      <Project>{241bdf50-401f-44bf-81cd-acc2ffc3a952}</Project>
+      <Name>Lumos.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Lumos.DAL.csproj">
+      <Project>{0e039414-2a2e-48b4-8db7-c4346106fa68}</Project>
+      <Name>Lumos.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Lumos.Entity.csproj">
+      <Project>{c19704c7-7d89-42e8-9f15-d8c1a1a0c525}</Project>
+      <Name>Lumos.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lumos\Lumos.csproj">
+      <Project>{27883666-32aa-447f-aa1f-6128b76fbee8}</Project>
+      <Name>Lumos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVC\Lumos.Mvc.csproj">
+      <Project>{ed113ad7-1b20-4b05-8961-9b701e51734c}</Project>
+      <Name>Lumos.Mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\mipb.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12059</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12059/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Areas/Manager/Views/Shared/_LayoutHomeMainTree.cshtml";
+}
+@section styles{
+    @RenderSection("styles", required: false)
+}
+@section scripts{
+    @ManagerStaticScriptsResource.Render("jquery.formValidator.js")
+    @ManagerStaticScriptsResource.Render("jquery.formValidatorRegex.js")
+    @RenderSection("scripts", required: false)
+}
+
+@RenderBody()
+@section scriptsbyend{
+    @RenderSection("scriptsbyend", required: false)
+}

@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Web;
+
+namespace WebAppApi
+{
+    public class APIResponse : HttpResponseMessage
+    {
+        public APIResponse(APIResult apiResult)
+        {
+            StringContent content=new StringContent(apiResult.ToString(), Encoding.GetEncoding("UTF-8"), "application/json");
+
+
+            this.Content=content;
+        }
+    }
+}
