@@ -45,6 +45,8 @@ namespace WebBack
             HttpApplication ap = sender as HttpApplication;
             System.Exception ex = ap.Server.GetLastError();
 
+            //洒洒水水S
+
 
             var httpStatusCode = (ex is HttpException) ? (ex as HttpException).GetHttpCode() : 500; //这里仅仅区分两种错误 
 
